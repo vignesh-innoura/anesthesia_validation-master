@@ -228,15 +228,17 @@ function PatientTable({
       <table className={TableStyle.classTable}>
         <thead className={TableStyle.classThead}>
           <tr>
-            <th colSpan={6}></th>
-            <th colSpan={4} align="center">TIME</th>
-            <th></th>
+            <th className={TableStyle.startTitles} colSpan={6}></th>
+            <th className={TableStyle.title} colSpan={4} align="center">TIME</th>
+            <th className={TableStyle.endtitles} colSpan={4}></th>
+            <th style={{width: '10px'}}></th>
+            <th className={TableStyle.subsTitle} colSpan={4}>Diagnosis</th>
           </tr>
           <tr>
-            <th>SI.No</th>
-            <th>Patient Name</th>
+            <th className={TableStyle.bottomTitles}>SI.No</th>
+            <th className={TableStyle.title}>Patient Name</th>
 
-            <th  onClick={sortTableByAsc}>
+            <th className={TableStyle.title} onClick={sortTableByAsc}>
               <div
                 style={{
                   cursor: "pointer",
@@ -256,19 +258,19 @@ function PatientTable({
                 </div>
               </div>
             </th>
-            <th>Date of Service</th>
-            <th>Anesthesiologist</th>
-            <th>CRNA</th>
+            <th className={TableStyle.title}>Date of Service</th>
+            <th className={TableStyle.title}>Anesthesiologist</th>
+            <th className={TableStyle.title}>CRNA</th>
 
-            <th>ST </th>
-            <th> ET </th>
-            <th>TU</th>
-            <th>TTM</th>
+            <th className={TableStyle.title}>ST </th>
+            <th className={TableStyle.title}> ET </th>
+            <th className={TableStyle.title}>TU</th>
+            <th className={TableStyle.title}>TTM</th>
 
-            <th>Anesthesia Type</th>
-            <th>Physical Modifier </th>
+            <th className={TableStyle.title}>Anesthesia Type</th>
+            <th className={TableStyle.title}>Physical Modifier </th>
 
-            <th>
+            <th className={TableStyle.title}>
               <div
                 style={{
                   cursor: "pointer",
@@ -288,11 +290,12 @@ function PatientTable({
               </div>
             </th>
 
-            <th>ASA Code </th>
-            <th>D 1</th>
-            <th>D 2</th>
-            <th>D 3</th>
-            <th>D 4</th>
+            <th className={TableStyle.endBottomtitles}>ASA Code </th>
+            <th style={{width: '10px'}}></th>
+            <th className={TableStyle.subTitless}>D 1</th>
+            <th className={TableStyle.subTitle}>D 2</th>
+            <th className={TableStyle.subTitle}>D 3</th>
+            <th className={TableStyle.subTitles}>D 4</th>
             <th>Edit</th>
           </tr>
         </thead>
@@ -313,10 +316,11 @@ function PatientTable({
                   key={item.id}
                   onClick={() => setSelectRowData(item)}
                   style={rowStyle}
+                  className="my-2"
                 >
-                  <td>{index + 1}</td>
+                  <td className={`border-start border-top border-bottom`}>{index + 1}</td>
 
-                  <td>{item?.patientName}</td>
+                  <td className={TableStyle.bodyContant}>{item?.patientName}</td>
 
                   <td
                     onClick={() => {
@@ -389,8 +393,9 @@ function PatientTable({
                   <td>{item?.physicalModifier}</td>
                   <td>{item?.qs}</td>
                   <td>{item?.asaCode}</td>
-
+                  <td style={{maxWidth: '10px', padding: 0}}></td>
                   <td
+                  className={TableStyle.diagnosis1}
                     // style={{
                     //   backgroundColor: hasDiagnosisData ? "#eee4ff" : "#e08515",
                     // }}
@@ -398,6 +403,7 @@ function PatientTable({
                     {item?.diagnosis[0] || null}
                   </td>
                   <td
+                  className={TableStyle.diagnosis}
                     // style={{
                     //   backgroundColor: hasDiagnosisData ? "#eee4ff" : "#e08515",
                     // }}
@@ -405,6 +411,7 @@ function PatientTable({
                     {item?.diagnosis[1] || null}
                   </td>
                   <td
+                  className={TableStyle.diagnosis}
                     // style={{
                     //   backgroundColor: hasDiagnosisData ? "#eee4ff" : "#e08515",
                     // }}
@@ -412,6 +419,7 @@ function PatientTable({
                     {item?.diagnosis[2] || null}
                   </td>
                   <td
+                  className={TableStyle.diagnosis2}
                     // style={{
                     //   backgroundColor: hasDiagnosisData ? "#eee4ff" : "#e08515",
                     // }}
